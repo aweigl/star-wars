@@ -36,6 +36,9 @@ export const Menu = () => {
               )}
             </div>
           ))}
+          <DropdownMenuItem>
+            <Link href="/not/found/easter-egg">Easter egg</Link>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
