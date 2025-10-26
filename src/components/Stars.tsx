@@ -1,8 +1,8 @@
 import { fetchEntities } from "@/lib/swapi";
 import { Star } from "./ui/Star";
 
-export const Stars = async () => {
-  const planets = await fetchEntities("planets", true);
+export const Stars = async ({ withPlanets = true }) => {
+  const planets = withPlanets ? await fetchEntities("planets", true) : [];
 
   return [...Array(70), ...planets].map((item, index) => {
     const top = Math.floor(Math.random() * 100);

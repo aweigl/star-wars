@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Stars } from "@/components/Stars";
-import { ResourcesType } from "@/lib/swapi.types";
 import { Menu } from "@/components/ui/Menu";
 
 const geistSans = Geist({
@@ -30,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="bg-gradient-to-b from-slate-900 via-slate-950 to-black h-screen overflow-hidden text-sw-amber font-sans relative">
+        <div className="bg-linear-to-b from-slate-900 via-slate-950 to-black h-screen text-sw-amber font-sans relative">
           <Menu />
           {children}
         </div>

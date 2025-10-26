@@ -3,41 +3,28 @@ import { Card, CardContent } from "./ui/card";
 import { Resident } from "./Resident";
 import { extractIdFromUrl } from "@/lib/utils";
 import { FilmLink } from "./FilmLink";
-
-const PlanetInfo = ({ label, value }: { label: string; value: string }) => {
-  return (
-    <div className="flex flex-col">
-      <span className="text-yellow-500 text-xs uppercase tracking-widest">
-        {label}
-      </span>
-      <span className="font-semibold text-yellow-300">{value}</span>
-    </div>
-  );
-};
+import { InfoText } from "./InfoText";
 
 export const PlanetView = ({ planet }: { planet: Planet }) => {
   return (
     <Card className="bg-white/5 border border-yellow-500/30 text-yellow-300 rounded-2xl shadow-lg max-w-2xl w-full mt-16">
-      <CardContent className="p-6 space-y-6 w-fit">
+      <CardContent className="p-6 space-y-6">
         <h1 className="text-5xl font-bold text-center mb-8">{planet.name}</h1>
         <div className="grid grid-cols-2 gap-4 text-sm md:text-base">
-          <PlanetInfo
+          <InfoText
             label="Rotation Period"
             value={`${planet.rotation_period} hours`}
           />
-          <PlanetInfo
+          <InfoText
             label="Orbital Period"
             value={`${planet.orbital_period} days`}
           />
-          <PlanetInfo label="Diameter" value={`${planet.diameter} km`} />
-          <PlanetInfo label="Climate" value={planet.climate} />
-          <PlanetInfo label="Gravity" value={planet.gravity} />
-          <PlanetInfo label="Terrain" value={planet.terrain} />
-          <PlanetInfo
-            label="Surface Water"
-            value={`${planet.surface_water}%`}
-          />
-          <PlanetInfo
+          <InfoText label="Diameter" value={`${planet.diameter} km`} />
+          <InfoText label="Climate" value={planet.climate} />
+          <InfoText label="Gravity" value={planet.gravity} />
+          <InfoText label="Terrain" value={planet.terrain} />
+          <InfoText label="Surface Water" value={`${planet.surface_water}%`} />
+          <InfoText
             label="Population"
             value={Intl.NumberFormat("de-DE").format(Number(planet.population))}
           />
